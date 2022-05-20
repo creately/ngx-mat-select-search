@@ -48,7 +48,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-mat-select-search:build"
+            "browserTarget": "ngx-mat-select-search:build",
+            "port": 4333
           },
           "configurations": {
             "production": {
