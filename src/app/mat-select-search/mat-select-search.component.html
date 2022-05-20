@@ -17,18 +17,22 @@
                 [matTooltipPosition]="toogleAllCheckboxTooltipPosition"
                 (change)="_emitSelectAllBooleanToParent($event.checked)"
   ></mat-checkbox>
-
-  <input class="mat-select-search-input mat-input-element"
-         autocomplete="off"
-         [type]="type"
-         [formControl]="_formControl"
-         #searchSelectInput
-         (keydown)="_handleKeydown($event)"
-         (keyup)="_handleKeyup($event)"
-         (blur)="onBlur()"
-         [placeholder]="placeholderLabel"
-         [attr.aria-label]="ariaLabel"
-  />
+  <div class="mat-select-search-input-container">
+    <div *ngIf="searchIcon" class="mat-select-search-icon">
+      <ng-content select="[ngxMatSelectSearchIcon]"></ng-content>
+    </div>
+    <input class="mat-select-search-input mat-input-element"
+           autocomplete="off"
+           [type]="type"
+           [formControl]="_formControl"
+           #searchSelectInput
+           (keydown)="_handleKeydown($event)"
+           (keyup)="_handleKeyup($event)"
+           (blur)="onBlur()"
+           [placeholder]="placeholderLabel"
+           [attr.aria-label]="ariaLabel"
+    />
+  </div>
   <mat-spinner *ngIf="searching"
           class="mat-select-search-spinner"
           diameter="16"></mat-spinner>

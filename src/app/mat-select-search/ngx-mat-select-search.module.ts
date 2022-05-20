@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 
 import { MatSelectSearchClearDirective } from './mat-select-search-clear.directive';
+import { MatSelectSearchIconDirective } from './mat-select-search-icon.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 
 export const MatSelectSearchVersion = '3.3.3';
@@ -32,11 +33,13 @@ export const MatSelectSearchVersion = '3.3.3';
   ],
   declarations: [
     MatSelectSearchComponent,
-    MatSelectSearchClearDirective
+    MatSelectSearchClearDirective,
+    MatSelectSearchIconDirective
   ],
   exports: [
     MatSelectSearchComponent,
-    MatSelectSearchClearDirective
+    MatSelectSearchClearDirective,
+    MatSelectSearchIconDirective
   ]
 })
 export class NgxMatSelectSearchModule { }

@@ -34,6 +34,7 @@ import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
 import { delay, filter, map, startWith, switchMap, take, takeUntil, tap } from 'rxjs/operators';
 
 import { MatSelectSearchClearDirective } from './mat-select-search-clear.directive';
+import { MatSelectSearchIconDirective } from './mat-select-search-icon.directive';
 
 /** The max height of the select's overlay panel. */
 const SELECT_PANEL_MAX_HEIGHT = 256;
@@ -210,6 +211,9 @@ export class MatSelectSearchComponent implements OnInit, OnDestroy, ControlValue
 
   /** Reference to custom search input clear icon */
   @ContentChild(MatSelectSearchClearDirective, { static: false }) clearIcon: MatSelectSearchClearDirective;
+
+  /** Reference to custom search icon */
+  @ContentChild(MatSelectSearchIconDirective, { static: false }) searchIcon: MatSelectSearchIconDirective;
 
   @HostBinding('class.mat-select-search-inside-mat-option')
   get isInsideMatOption(): boolean {
