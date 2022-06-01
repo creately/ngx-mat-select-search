@@ -18,7 +18,7 @@ import { MatSelectSearchClearDirective } from './mat-select-search-clear.directi
 import { MatSelectSearchIconDirective } from './mat-select-search-icon.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 
-export const MatSelectSearchVersion = '3.3.3';
+export const MatSelectSearchVersion = '3.3.4';
 
 
 @NgModule({
