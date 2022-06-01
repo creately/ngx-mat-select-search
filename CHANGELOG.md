@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.3.3
+## 3.3.4
 * Enhancement: Added Search Icon
 ## 3.3.3
 * Enhancement: Document compatibility with `@angular/core`: `^13.0.0`, `@angular/material`: `^13.0.0` in `README.md`
