@@ -8,7 +8,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSelectInfiniteScrollModule } from 'ng-mat-select-infinite-scroll';
 
 
 import { NgxMatSelectSearchModule } from './mat-select-search/ngx-mat-select-search.module';
@@ -24,6 +23,7 @@ import {
 } from './examples/06-multiple-selection-select-all-example/multiple-selection-select-all-example.component';
 import { TooltipSelectAllExampleComponent } from './examples/07-tooltip-select-all-example/tooltip-select-all-example.component';
 import { InfiniteScrollExampleComponent } from './examples/08-infinite-scroll-example/infinite-scroll-example.component';
+import { CustomNoEntriesFoundExampleComponent } from './examples/09-custom-no-entries-found-example/custom-no-entries-found-example.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
@@ -50,7 +50,6 @@ export class MaterialModule {}
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgxMatSelectSearchModule,
-    MatSelectInfiniteScrollModule,
     MatSlideToggleModule
   ],
   declarations: [
@@ -58,6 +57,7 @@ export class MaterialModule {}
     SingleSelectionExampleComponent,
     MultipleSelectionExampleComponent,
     CustomClearIconExampleComponent,
+    CustomNoEntriesFoundExampleComponent,
     OptionGroupsExampleComponent,
     ServerSideSearchExampleComponent,
     MultipleSelectionSelectAllExampleComponent,

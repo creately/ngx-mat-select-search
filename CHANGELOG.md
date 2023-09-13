@@ -1,7 +1,118 @@
 # Changelog
 
-## 3.3.4
+## 7.0.5
 * Enhancement: Added Search Icon
+
+## 7.0.4
+* Fix background issue with `@angular/material`: `^16.2.0` with toggle-all button
+  [#435](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/435)
+
+  Thanks to @ioanbin
+* Fix issue with setting the first active item 
+  [#436](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/436)
+
+  Thanks to @Danevandy99
+
+## 7.0.3
+* Fix background issue with `@angular/material`: `^16.2.0`
+  [#431](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/431)
+
+  Thanks to @chutzemischt and @akaNightmare 
+  
+## 7.0.2
+* Fix compatibility with `@angular/material`: `^16.0.0`
+  [#425](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/425)
+
+  Thanks to @GipHub123 for reporting
+
+## 7.0.1
+* Enhancement: Add compatibility with `@angular/material`: `^16.0.0`
+
+## 7.0.0
+* Update compatibility to `@angular/material@15` with the MDC-based `MatSelectModule` (`@angular/material/select`).
+  [#412](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/412)
+  
+  Thanks to @pureyoy and @swierzbicki
+
+  **Breaking Change**:  The `MatLegacySelectModule` (`@angular/material/legacy-select`) of `@angular/material@15` is not supported anymore, please use version `6.0.0`.
+                        See [README.md#compatibility](README.md#compatibility)
+                        
+## 6.0.0
+* Add Angular Material 15 as a peer dependency \
+  [#408](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/408)
+  
+  Thanks to @swierzbicki
+* Fix select all example [#336](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/336)
+
+  Thanks to @AhsanAyaz
+* Update compatibility to `@angular/material@15` with `MatLegacySelectModule` (`@angular/material/legacy-select`).
+  [#395](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/395)
+  
+  **Breaking Change**:  `@angular/material`: `<= 14` is not supported anymore, please use version `5.0.0`.
+                        See [README.md#compatibility](README.md#compatibility)
+
+## 5.0.0
+* Enhancement: Accessibility Issue: screenreaders reading blank before each option.
+  [#349](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/349)
+
+  **Breaking Change**:  The `@Input() indexAndLengthScreenReaderText` became obsolete and was removed.
+
+  Thanks to @escheiermann
+* Enhancement: **Breaking Change** Renamed misspelled `@Input() toogleAllCheckboxTooltipPosition` 
+  to `@Input() toggleAllCheckboxTooltipPosition`.
+  [#266](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/266)
+
+  Thanks to @bulldog98 for reporting
+
+## 4.2.1
+* Bugfix: Revert copying in mode multi so `(selectionChange)` works properly.
+  [#387](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/387)
+  
+  Thanks to @angelaki for reporting
+  
+## 4.2.0
+* Enhancement: Enable the use of a custom template for notFoundEntries
+  [#381](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/381)
+  
+  Thanks to @ruekart
+
+## 4.1.2
+* Bugfix: Restoring selected values in mode multi throws error
+  [#376](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/376)
+  
+  Thanks to @qstiegler
+* Chore: Update npm packages
+
+## 4.1.1
+* Enhancement: Rename `MATSELECTSEARCH_GLOBAL_OPTIONS` to `MAT_SELECTSEARCH_DEFAULT_OPTIONS`
+  [#369](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/369)
+  
+  Thanks to @angelaki
+
+## 4.1.0
+* Feature: Default `@Input()` values can be configured globally using `MATSELECTSEARCH_GLOBAL_OPTIONS`
+  [#364](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/364)
+
+  Thanks to @angelaki
+* Feature: Close icon can be configured with `closeIcon` and `closeSvgIcon`
+  [#364](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/364)
+
+  Thanks to @angelaki
+
+## 4.0.2
+* Enhancement: Add compatibility with `@angular/core`: `^14.0.0`, `@angular/material`: `^14.0.0`
+
+## 4.0.1
+* Fix: Remove incompatible angular versions from `Readme.md` and `package.json`
+
+## 4.0.0
+* Enhancement: Build and package using `@angular/core@13` in Ivy format.
+  [#347](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/347)
+  
+  **Breaking Change**:  `@angular/core`: `<= 11.0.0` is not supported anymore, please use version `3.3.3`.
+
+  Thanks to @nseni for reporting
+
 ## 3.3.3
 * Enhancement: Document compatibility with `@angular/core`: `^13.0.0`, `@angular/material`: `^13.0.0` in `README.md`
 

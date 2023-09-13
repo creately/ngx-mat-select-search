@@ -6,21 +6,22 @@
  */
 
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { ReplaySubject } from 'rxjs';
 import { Subject } from 'rxjs';
-import {delay, take} from 'rxjs/operators';
+import { delay, take } from 'rxjs/operators';
 import { takeUntil } from 'rxjs/operators';
 
 import { MatSelectSearchComponent } from './mat-select-search.component';
 import { NgxMatSelectSearchModule } from './ngx-mat-select-search.module';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { DOWN_ARROW } from '@angular/cdk/keycodes';
+import { MAT_SELECTSEARCH_DEFAULT_OPTIONS, MatSelectSearchOptions } from './default-options';
 
 /* tslint:disable:component-selector */
 
@@ -52,7 +53,8 @@ interface Bank {
       <mat-form-field>
         <mat-select [formControl]="bankCtrlMatOption" placeholder="Bank" #selectSingleMatOption>
           <mat-option>
-            <ngx-mat-select-search [formControl]="bankFilterCtrlMatOption" #selectSearchSingleMatOption></ngx-mat-select-search>
+            <ngx-mat-select-search [formControl]="bankFilterCtrlMatOption"
+                                   #selectSearchSingleMatOption></ngx-mat-select-search>
           </mat-option>
           <mat-option *ngFor="let bank of filteredBanksMatOption | async" [value]="bank">
             {{bank.name}}
@@ -85,31 +87,34 @@ interface Bank {
 })
 export class MatSelectSearchTestComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild('selectSingle', {static: false}) matSelect: MatSelect;
-  @ViewChild('selectSingleMatOption', {static: false}) matSelectMatOption: MatSelect;
-  @ViewChild('selectMulti', {static: false}) matSelectMulti: MatSelect;
-  @ViewChild('selectSearchSingle', {static: false}) matSelectSearch: MatSelectSearchComponent;
-  @ViewChild('selectSearchSingleMatOption', {static: false}) matSelectSearchMatOption: MatSelectSearchComponent;
-  @ViewChild('selectSearchMulti', {static: false}) matSelectSearchMulti: MatSelectSearchComponent;
+  @ViewChild('selectSingle') matSelect: MatSelect;
+  @ViewChild('selectSingleMatOption') matSelectMatOption: MatSelect;
+  @ViewChild('selectMulti') matSelectMulti: MatSelect;
+  @ViewChild('selectSearchSingle') matSelectSearch: MatSelectSearchComponent;
+  @ViewChild('selectSearchSingleMatOption') matSelectSearchMatOption: MatSelectSearchComponent;
+  @ViewChild('selectSearchMulti') matSelectSearchMulti: MatSelectSearchComponent;
 
   // control for the selected bank
-  public bankCtrl: FormControl = new FormControl();
+  public bankCtrl: UntypedFormControl = new UntypedFormControl();
   // control for the selected bank
-  public bankCtrlMatOption: FormControl = new FormControl();
+  public bankCtrlMatOption: UntypedFormControl = new UntypedFormControl();
   // control for the MatSelect filter keyword
-  public bankFilterCtrl: FormControl = new FormControl();
+  public bankFilterCtrl: UntypedFormControl = new UntypedFormControl();
   // control for the MatSelect filter keyword
-  public bankFilterCtrlMatOption: FormControl = new FormControl();
+  public bankFilterCtrlMatOption: UntypedFormControl = new UntypedFormControl();
 
   /** control for the selected bank for multi-selection */
-  public bankMultiCtrl: FormControl = new FormControl();
+  public bankMultiCtrl: UntypedFormControl = new UntypedFormControl();
 
   /** control for the MatSelect filter keyword multi-selection */
-  public bankMultiFilterCtrl: FormControl = new FormControl();
+  public bankMultiFilterCtrl: UntypedFormControl = new UntypedFormControl();
 
 
   // list of banks
-  public banks: Bank[] = [{name: 'Bank A', id: 'A'}, {name: 'Bank B', id: 'B'}, {name: 'Bank C', id: 'C'}, {name: 'Bank DC', id: 'DC'}];
+  public banks: Bank[] = [{name: 'Bank A', id: 'A'}, {name: 'Bank B', id: 'B'}, {
+    name: 'Bank C',
+    id: 'C'
+  }, {name: 'Bank DC', id: 'DC'}];
 
   public filteredBanks: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
   public filteredBanksMatOption: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
@@ -136,7 +141,6 @@ export class MatSelectSearchTestComponent implements OnInit, OnDestroy, AfterVie
     if (this.initialMultiSelection) {
       this.bankMultiCtrl.setValue(this.initialMultiSelection);
     }
-
 
 
     // load the initial bank list
@@ -253,7 +257,7 @@ describe('MatSelectSearchComponent', () => {
   let component: MatSelectSearchTestComponent;
   let fixture: ComponentFixture<MatSelectSearchTestComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,
@@ -265,11 +269,11 @@ describe('MatSelectSearchComponent', () => {
       ],
       declarations: [MatSelectSearchTestComponent],
       providers: [{
-          provide: LiveAnnouncer,
-          useValue: {
-            announce: jasmine.createSpy('announce')
-          }
+        provide: LiveAnnouncer,
+        useValue: {
+          announce: jasmine.createSpy('announce')
         }
+      }
       ]
     })
       .compileComponents();
@@ -430,7 +434,7 @@ describe('MatSelectSearchComponent', () => {
                   setTimeout(() => {
                     expect(component.matSelect.options.length).toBe(0);
 
-                    component.matSelectSearch._handleKeyup(<KeyboardEvent>{ keyCode: DOWN_ARROW });
+                    component.matSelectSearch._handleKeyup(<KeyboardEvent>{keyCode: DOWN_ARROW});
                     expect(announcer.announce).not.toHaveBeenCalled();
                     done();
                   });
@@ -552,7 +556,7 @@ describe('MatSelectSearchComponent', () => {
 
   describe('with initial selection', () => {
 
-    it('should set the initial selection of MatSelect', async((done) => {
+    it('should set the initial selection of MatSelect', waitForAsync((done) => {
       component.initialSingleSelection = component.banks[3];
       fixture.detectChanges();
 
@@ -593,7 +597,7 @@ describe('MatSelectSearchComponent', () => {
 
     }));
 
-    it('set the initial selection with multi=true and filter the options available, filter the options by input "c" and select an option', async((done) => {
+    it('set the initial selection with multi=true and filter the options available, filter the options by input "c" and select an option', waitForAsync((done) => {
       component.initialMultiSelection = [component.banks[1]];
       fixture.detectChanges();
 
@@ -704,5 +708,83 @@ describe('MatSelectSearchComponent', () => {
     }));
 
   });
+
+});
+
+
+describe('MatSelectSearchComponent with default options', () => {
+  let component: MatSelectSearchTestComponent;
+  let fixture: ComponentFixture<MatSelectSearchTestComponent>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        CommonModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        NgxMatSelectSearchModule
+      ],
+      declarations: [MatSelectSearchTestComponent],
+      providers: [
+        {
+          provide: LiveAnnouncer,
+          useValue: {
+            announce: jasmine.createSpy('announce')
+          }
+        },
+        {
+          provide: MAT_SELECTSEARCH_DEFAULT_OPTIONS,
+          useValue: <MatSelectSearchOptions>{
+            placeholderLabel: 'Mega bla',
+          },
+        },
+      ]
+    })
+      .compileComponents();
+  }));
+
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(MatSelectSearchTestComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+    it('should show a search field and focus it when opening the select', (done) => {
+
+      component.filteredBanks
+        .pipe(
+          take(1),
+          delay(1)
+        )
+        .subscribe(() => {
+          // when the filtered banks are initialized
+          fixture.detectChanges();
+
+          component.matSelect.open();
+          fixture.detectChanges();
+
+          component.matSelect.openedChange
+            .pipe(
+              take(1),
+              delay(1)
+            )
+            .subscribe((opened) => {
+              const searchField = document.querySelector('.mat-select-search-inner .mat-select-search-input') as HTMLInputElement;
+
+              expect(searchField.placeholder).toBe('Mega bla');
+              done();
+            });
+
+        });
+
+    });
 
 });

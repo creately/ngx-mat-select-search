@@ -1,3 +1,9 @@
+<!--
+Copyright (c) 2018 Bithost GmbH All Rights Reserved.
+
+Use of this source code is governed by an MIT-style license that can be
+found in the LICENSE file at https://angular.io/license
+-->
 <!-- Placeholder to adjust vertical offset of the mat-option elements -->
 <input matInput class="mat-select-search-input mat-select-search-hidden"/>
 
@@ -7,59 +13,60 @@
       class="mat-select-search-inner mat-typography mat-datepicker-content mat-tab-header"
       [ngClass]="{'mat-select-search-inner-multiple': matSelect.multiple, 'mat-select-search-inner-toggle-all': _isToggleAllCheckboxVisible() }">
 
-  <mat-checkbox *ngIf="_isToggleAllCheckboxVisible()"
-                [color]="matFormField?.color"
-                class="mat-select-search-toggle-all-checkbox"
-                [checked]="toggleAllCheckboxChecked"
-                [indeterminate]="toggleAllCheckboxIndeterminate"
-                [matTooltip]="toggleAllCheckboxTooltipMessage"
-                matTooltipClass="ngx-mat-select-search-toggle-all-tooltip"
-                [matTooltipPosition]="toogleAllCheckboxTooltipPosition"
-                (change)="_emitSelectAllBooleanToParent($event.checked)"
-  ></mat-checkbox>
-  <div class="mat-select-search-input-container">
-    <div *ngIf="searchIcon" class="mat-select-search-icon">
-      <ng-content select="[ngxMatSelectSearchIcon]"></ng-content>
+  <div class="mat-select-search-inner-row">
+    <mat-checkbox *ngIf="_isToggleAllCheckboxVisible()"
+                  [color]="matFormField?.color"
+                  class="mat-select-search-toggle-all-checkbox"
+                  [checked]="toggleAllCheckboxChecked"
+                  [indeterminate]="toggleAllCheckboxIndeterminate"
+                  [matTooltip]="toggleAllCheckboxTooltipMessage"
+                  matTooltipClass="ngx-mat-select-search-toggle-all-tooltip"
+                  [matTooltipPosition]="toggleAllCheckboxTooltipPosition"
+                  (change)="_emitSelectAllBooleanToParent($event.checked)"
+    ></mat-checkbox>
+    <div class="mat-select-search-input-container">
+      <div *ngIf="searchIcon" class="mat-select-search-icon">
+        <ng-content select="[ngxMatSelectSearchIcon]"></ng-content>
+      </div>
+      <input class="mat-select-search-input"
+            autocomplete="off"
+            [type]="type"
+            [formControl]="_formControl"
+            #searchSelectInput
+            (keydown)="_handleKeydown($event)"
+            (keyup)="_handleKeyup($event)"
+            (blur)="onBlur()"
+            [placeholder]="placeholderLabel"
+            [attr.aria-label]="ariaLabel"
+      />
     </div>
-    <input class="mat-select-search-input mat-input-element"
-           autocomplete="off"
-           [type]="type"
-           [formControl]="_formControl"
-           #searchSelectInput
-           (keydown)="_handleKeydown($event)"
-           (keyup)="_handleKeyup($event)"
-           (blur)="onBlur()"
-           [placeholder]="placeholderLabel"
-           [attr.aria-label]="ariaLabel"
-    />
+    <mat-spinner *ngIf="searching"
+            class="mat-select-search-spinner"
+            diameter="16"></mat-spinner>
+
+    <button *ngIf="!hideClearSearchButton && value && !searching"
+            mat-icon-button
+            aria-label="Clear"
+            (click)="_reset(true)"
+            class="mat-select-search-clear">
+      <ng-content *ngIf="clearIcon; else defaultIcon" select="[ngxMatSelectSearchClear]"></ng-content>
+      <ng-template #defaultIcon>
+        <mat-icon [svgIcon]="closeSvgIcon">
+          {{!closeSvgIcon ? closeIcon : null}}
+        </mat-icon>
+      </ng-template>
+    </button>
+
+    <ng-content select=".mat-select-search-custom-header-content"></ng-content>
   </div>
-  <mat-spinner *ngIf="searching"
-          class="mat-select-search-spinner"
-          diameter="16"></mat-spinner>
 
-  <button mat-button
-          *ngIf="!hideClearSearchButton && value && !searching"
-          mat-icon-button
-          aria-label="Clear"
-          (click)="_reset(true)"
-          class="mat-select-search-clear">
-    <ng-content *ngIf="clearIcon; else defaultIcon" select="[ngxMatSelectSearchClear]"></ng-content>
-    <ng-template #defaultIcon>
-      <mat-icon>close</mat-icon>
-    </ng-template>
-  </button>
-
-  <ng-content select=".mat-select-search-custom-header-content"></ng-content>
-
+  <mat-divider></mat-divider>
 </div>
 
 <div *ngIf="_showNoEntriesFound$ | async"
      class="mat-select-search-no-entries-found">
-  {{noEntriesFoundLabel}}
+  <ng-content *ngIf="noEntriesFound; else defaultNoEntriesFound"
+              select="[ngxMatSelectNoEntriesFound]"></ng-content>
+  <ng-template #defaultNoEntriesFound>{{noEntriesFoundLabel}}</ng-template>
 </div>
-<!--
-Copyright (c) 2018 Bithost GmbH All Rights Reserved.
 
-Use of this source code is governed by an MIT-style license that can be
-found in the LICENSE file at https://angular.io/license
--->

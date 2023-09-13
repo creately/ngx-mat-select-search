@@ -26,17 +26,15 @@ Install `ngx-mat-select-search` in your project:
 npm install ngx-mat-select-search
 ```
 
-Import the `NgxMatSelectSearchModule` in your `app.module.ts`:
+Import the `NgxMatSelectSearchModule` e.g. in your `app.module.ts`:
 ```typescript
-import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   imports: [
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
+    ...
     MatSelectModule,
-    MatFormFieldModule,
     NgxMatSelectSearchModule
   ],
 })
@@ -56,8 +54,7 @@ Use the `ngx-mat-select-search` component inside a `mat-select` element by placi
   </mat-select>
 </mat-form-field>
 ```
-See the example in [https://github.com/bithost-gmbh/ngx-mat-select-search/blob/master/src/app/app.component.html](https://github.com/bithost-gmbh/ngx-mat-select-search/blob/master/src/app/app.component.html)
-and [https://github.com/bithost-gmbh/ngx-mat-select-search/blob/master/src/app/app.component.ts](https://github.com/bithost-gmbh/ngx-mat-select-search/blob/master/src/app/app.component.ts)
+See the examples in [https://github.com/bithost-gmbh/ngx-mat-select-search/tree/master/src/app/examples](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/master/src/app/examples)
 how to wire the `ngx-mat-select-search` and filter the options available.
 Or have a look at [https://github.com/bithost-gmbh/ngx-mat-select-search-example](https://github.com/bithost-gmbh/ngx-mat-select-search-example) to see it in a standalone app.
 
@@ -85,11 +82,30 @@ To use the [i18n](https://angular.io/guide/i18n) API for translation of the labe
 
 ### Compatibility
 
-* `@angular/core`: `^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0`,
+#### Current release
+
+* `@angular/core`: `^15.0.0 || ^16.0.0`
+* `@angular/material`: `^15.0.0 || ^16.0.0` with `MatSelectModule` (`@angular/material/select`)
+
+#### Version [`6.0.0`](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/6.0.0)
+
+* `@angular/core`: `^15.0.0`
+* `@angular/material`: `^15.0.0` with `MatLegacySelectModule` (`@angular/material/legacy-select`)
+
+#### Version [`5.0.0`](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/5.0.0)
+
+* `@angular/core`: `^12.0.0 || ^13.0.0 || ^14.0.0`
+* `@angular/material`: `^12.0.0 || ^13.0.0 || ^14.0.0`
+
+#### Version [`3.3.3`](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/3.3.3)
+
+* `@angular/core`: `^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0`
 * `@angular/material`: `^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0`
 
-For compatibility with `@angular/core`: `^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0`, 
-use version `1.8.0`.
+#### Version [`1.8.0`](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/1.8.0)
+
+* `@angular/core`: `^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0`
+* `@angular/material`: `^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0`
 
 ### API
 The `MatSelectSearchComponent` implements the [ControlValueAccessor](https://angular.io/api/forms/ControlValueAccessor) interface.
@@ -102,6 +118,12 @@ Furthermore, it provides the following inputs:
 
   /** Type of the search input field */
   @Input() type = 'text';
+
+  /** Font-based icon used for displaying Close-Icon */
+  @Input() closeIcon = 'close';
+
+  /** Svg-based icon used for displaying Close-Icon. If set, closeIcon is overridden */
+  @Input() closeSvgIcon?: string;
 
   /** Label to be shown when no entries are found. Set to null if no message should be shown. */
   @Input() noEntriesFoundLabel = 'Keine Optionen gefunden';
@@ -146,7 +168,7 @@ Furthermore, it provides the following inputs:
   @Input() toggleAllCheckboxTooltipMessage = '';
 
   /** Define the position of the tooltip on the toggle-all checkbox. */
-  @Input() toogleAllCheckboxTooltipPosition: 'left' | 'right' | 'above' | 'below' | 'before' | 'after' = 'below';
+  @Input() toggleAllCheckboxTooltipPosition: 'left' | 'right' | 'above' | 'below' | 'before' | 'after' = 'below';
 
   /** Show/Hide the search clear button of the search input */
   @Input() hideClearSearchButton = false;
@@ -156,13 +178,6 @@ Furthermore, it provides the following inputs:
    * Defaults to false, so selected options are only restored while filtering is active. 
    */
   @Input() alwaysRestoreSelectedOptionsMulti = false;
-
-  /**
-  *  Text that is appended to the currently active item label announced by screen readers, informing the user of the current index, value and total
-  *  options.
-  *  eg: Bank R (Germany) 1 of 6
-  */
-  @Input() indexAndLengthScreenReaderText = ' of ';
   
   /** Output emitter to send to parent component with the toggle all boolean */
   @Output() toggleAll = new EventEmitter<boolean>();
@@ -177,6 +192,20 @@ In order to customize the search icon, add the `ngxMatSelectSearchClear` to your
    <mat-icon ngxMatSelectSearchClear>delete</mat-icon>
 </ngx-mat-select-search>
 ```
+If just the icon should be changed the inputs `closeIcon` and `closeSvgIcon` can be used.
+
+#### Customize no entries found element
+In order to customize the no entries found element, add the `ngxMatSelectNoEntriesFound` to your custom item (a `mat-icon, span, button` or any other element) and place it inside the `ngx-mat-select-search` component:
+```html
+<ngx-mat-select-search>
+  <span ngxMatSelectNoEntriesFound>
+    No entries found
+    <button mat-button color="primary">
+      Add <mat-icon>add</mat-icon>
+    </button>
+</span>
+</ngx-mat-select-search>
+```
 
 #### Custom content
 Custom content with the CSS class `mat-select-search-custom-header-content` can be transcluded as follows:
@@ -184,6 +213,30 @@ Custom content with the CSS class `mat-select-search-custom-header-content` can 
 <ngx-mat-select-search>
    <div class="mat-select-search-custom-header-content">something special</div>
 </ngx-mat-select-search>
+```
+
+#### Global default options
+Providing the [`MAT_SELECTSEARCH_DEFAULT_OPTIONS`](src/app/mat-select-search/default-options.ts) 
+InjectionToken, the default values of several `@Input()` properties can be set globally.
+See the documentation of the corresponding `@Input()` properties of `MatSelectSearchComponent`.
+
+Example:
+```typescript
+import { MAT_SELECTSEARCH_DEFAULT_OPTIONS, MatSelectSearchOptions } from 'ngx-mat-select-search';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: MAT_SELECTSEARCH_DEFAULT_OPTIONS,
+      useValue: <MatSelectSearchOptions>{
+        closeIcon: 'delete',
+        noEntriesFoundLabel: 'No options found',
+      }
+    }
+  ]
+})
+class AppModule {}
 ```
 
 ## Known Problems

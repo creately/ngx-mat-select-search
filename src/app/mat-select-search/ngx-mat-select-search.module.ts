@@ -17,9 +17,12 @@ import { CommonModule } from '@angular/common';
 import { MatSelectSearchClearDirective } from './mat-select-search-clear.directive';
 import { MatSelectSearchIconDirective } from './mat-select-search-icon.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectNoEntriesFoundDirective } from './mat-select-no-entries-found.directive';
+import { MatDividerModule } from '@angular/material/divider';
 
-export const MatSelectSearchVersion = '3.3.4';
-
+export const MatSelectSearchVersion = '7.0.4';
+export { MatSelectSearchClearDirective };
+export { MatSelectNoEntriesFoundDirective };
 
 @NgModule({
   imports: [
@@ -29,17 +32,21 @@ export const MatSelectSearchVersion = '3.3.4';
     MatCheckboxModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDividerModule,
   ],
   declarations: [
     MatSelectSearchComponent,
     MatSelectSearchClearDirective,
-    MatSelectSearchIconDirective
+    MatSelectSearchIconDirective,
+    MatSelectNoEntriesFoundDirective
   ],
   exports: [
     MatSelectSearchComponent,
     MatSelectSearchClearDirective,
-    MatSelectSearchIconDirective
+    MatSelectSearchIconDirective,
+    MatSelectNoEntriesFoundDirective
   ]
 })
-export class NgxMatSelectSearchModule { }
+export class NgxMatSelectSearchModule {
+}
