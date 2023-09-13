@@ -15,11 +15,11 @@
   },
   "author": "Esteban Gehring, Bithost GmbH",
   "bugs": {
-    "url": "https://github.com/bithost-gmbh/ngx-mat-select-search/issues"
+    "url": "https://github.com/creately/ngx-mat-select-search/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bithost-gmbh/ngx-mat-select-search.git"
+    "url": "git+https://github.com/creately/ngx-mat-select-search.git"
   },
   "keywords": [
     "angular",
