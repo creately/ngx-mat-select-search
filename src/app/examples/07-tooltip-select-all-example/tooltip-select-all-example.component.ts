@@ -8,21 +8,22 @@ import { Bank, BANKS } from '../demo-data';
 
 @Component({
   selector: 'app-tooltip-select-all-example',
+  standalone: false,
   templateUrl: './tooltip-select-all-example.component.html',
   styleUrls: ['./tooltip-select-all-example.component.scss']
 })
 export class TooltipSelectAllExampleComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  /** list of banks */
+  /** List of banks */
   protected banks: Bank[] = BANKS;
 
-  /** control for the selected bank for multi-selection */
-  public bankMultiCtrl: FormControl<Bank[]> = new FormControl<Bank[]>([]);
+  /** Control for the selected bank for multi-selection */
+  public bankMultiCtrl: FormControl<Bank[]> = new FormControl<Bank[]>([], {nonNullable: true});
 
-  /** control for the MatSelect filter keyword multi-selection */
-  public bankMultiFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword multi-selection */
+  public bankMultiFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of banks filtered by search keyword */
+  /** List of banks filtered by search keyword */
   public filteredBanksMulti: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
 
   public tooltipMessage = 'Select All / Unselect All';
@@ -33,7 +34,7 @@ export class TooltipSelectAllExampleComponent implements OnInit, AfterViewInit, 
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+
 
   ngOnInit() {
     // set initial selection

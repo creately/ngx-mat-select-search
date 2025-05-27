@@ -8,28 +8,29 @@ import { Bank, BankGroup, BANKGROUPS } from '../demo-data';
 
 @Component({
   selector: 'app-option-groups-example',
+  standalone: false,
   templateUrl: './option-groups-example.component.html',
   styleUrls: ['./option-groups-example.component.scss']
 })
 export class OptionGroupsExampleComponent implements OnInit, OnDestroy {
 
-  /** list of bank groups */
+  /** List of bank groups */
   protected bankGroups: BankGroup[] = BANKGROUPS;
 
-  /** control for the selected bank for option groups */
-  public bankGroupsCtrl: FormControl<Bank> = new FormControl<Bank>(null);
+  /** Control for the selected bank for option groups */
+  public bankGroupsCtrl: FormControl<Bank | null> = new FormControl<Bank | null>(null);
 
-  /** control for the MatSelect filter keyword for option groups */
-  public bankGroupsFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword for option groups */
+  public bankGroupsFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of bank groups filtered by search keyword for option groups */
+  /** List of bank groups filtered by search keyword for option groups */
   public filteredBankGroups: ReplaySubject<BankGroup[]> = new ReplaySubject<BankGroup[]>(1);
 
   /** Subject that emits when the component has been destroyed. */
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+
 
   ngOnInit() {
     // load the initial bank list
@@ -75,7 +76,7 @@ export class OptionGroupsExampleComponent implements OnInit, OnDestroy {
   }
 
   protected copyBankGroups(bankGroups: BankGroup[]) {
-    const bankGroupsCopy = [];
+    const bankGroupsCopy: BankGroup[] = [];
     bankGroups.forEach(bankGroup => {
       bankGroupsCopy.push({
         name: bankGroup.name,

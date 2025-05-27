@@ -8,27 +8,28 @@ import { Bank, BANKS } from '../demo-data';
 
 @Component({
   selector: 'app-multiple-selection-select-all-example',
+  standalone: false,
   templateUrl: './multiple-selection-select-all-example.component.html',
   styleUrls: ['./multiple-selection-select-all-example.component.scss']
 })
 export class MultipleSelectionSelectAllExampleComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  /** list of banks */
+  /** List of banks */
   protected banks: Bank[] = BANKS;
 
-  /** control for the selected bank for multi-selection */
-  public bankMultiCtrl: FormControl<Bank[]> = new FormControl<Bank[]>([]);
+  /** Control for the selected bank for multi-selection */
+  public bankMultiCtrl: FormControl<Bank[]> = new FormControl<Bank[]>([], {nonNullable: true});
 
-  /** control for the MatSelect filter keyword multi-selection */
-  public bankMultiFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword multi-selection */
+  public bankMultiFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of banks filtered by search keyword */
+  /** List of banks filtered by search keyword */
   public filteredBanksMulti: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
 
-  /** local copy of filtered banks to help set the toggle all checkbox state */
+  /** Local copy of filtered banks to help set the toggle all checkbox state */
   protected filteredBanksCache: Bank[] = [];
 
-  /** flags to set the toggle all checkbox state */
+  /** Flags to set the toggle all checkbox state */
   isIndeterminate = false;
   isChecked = false;
 
@@ -38,7 +39,7 @@ export class MultipleSelectionSelectAllExampleComponent implements OnInit, After
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+
 
   ngOnInit() {
     // set initial selection
@@ -80,7 +81,13 @@ export class MultipleSelectionSelectAllExampleComponent implements OnInit, After
           this.bankMultiCtrl.patchValue([]);
         }
       });
+    this.checkAllIfAllOptionSelected();
   }
+
+  onToggleSingleOption() {
+    this.checkAllIfAllOptionSelected();
+  }
+
 
   /**
    * Sets the initial value after the filteredBanks are loaded initially
@@ -115,7 +122,6 @@ export class MultipleSelectionSelectAllExampleComponent implements OnInit, After
     this.filteredBanksCache = this.banks.filter(bank => bank.name.toLowerCase().indexOf(search) > -1);
     this.filteredBanksMulti.next(this.filteredBanksCache);
   }
-
   protected setToggleAllCheckboxState() {
     let filteredLength = 0;
     if (this.bankMultiCtrl && this.bankMultiCtrl.value) {
@@ -128,5 +134,11 @@ export class MultipleSelectionSelectAllExampleComponent implements OnInit, After
       this.isChecked = filteredLength > 0 && filteredLength === this.filteredBanksCache.length;
     }
   }
-
+  private checkAllIfAllOptionSelected() {
+    if (this.banks.length === this.bankMultiCtrl.value.length) {
+      this.isChecked = true;
+    } else {
+      this.isChecked = false;
+    }
+  }
 }

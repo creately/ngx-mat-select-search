@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatest, merge, Observable, Subject } from 'rxjs';
 import { map, mapTo, scan, startWith } from 'rxjs/operators';
@@ -10,27 +10,28 @@ import { Bank } from '../demo-data';
  */
 @Component({
   selector: 'app-infinite-scroll-example',
+  standalone: false,
   templateUrl: './infinite-scroll-example.component.html',
   styleUrls: ['./infinite-scroll-example.component.scss']
 })
-export class InfiniteScrollExampleComponent implements OnInit, OnDestroy {
+export class InfiniteScrollExampleComponent implements OnDestroy {
 
   @ViewChild('matSelectInfiniteScroll', { static: true } )
   infiniteScrollSelect: MatSelect;
 
-  /** list with all available data, mocks some sort of backend data source */
+  /** List with all available data, mocks some sort of backend data source */
   private mockBankList: Bank[] = Array.from({ length: 1000 }).map((_, i) => ({
     id: String(i),
     name: `Bank ${i}`
   }));
 
-  /** control for the selected bank id */
-  public bankCtrl: FormControl<string> = new FormControl<string>(null);
+  /** Control for the selected bank id */
+  public bankCtrl: FormControl<string | null> = new FormControl<string | null>(null);
 
-  /** control for the MatSelect filter keyword */
-  public bankFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword */
+  public bankFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of data corresponding to the search input */
+  /** List of data corresponding to the search input */
   private filteredData$: Observable<Bank[]> = this.bankFilterCtrl.valueChanges.pipe(
     startWith(''),
     map(searchKeyword => {
@@ -43,18 +44,18 @@ export class InfiniteScrollExampleComponent implements OnInit, OnDestroy {
     })
   );
 
-  /** number of items added per batch */
+  /** Number of items added per batch */
   batchSize = 20;
 
   private incrementBatchOffset$: Subject<void> = new Subject<void>();
   private resetBatchOffset$: Subject<void> = new Subject<void>();
 
-  /** minimum offset needed for the batch to ensure the selected option is displayed */
+  /** Minimum offset needed for the batch to ensure the selected option is displayed */
   private minimumBatchOffset$: Observable<number> = combineLatest([
     this.filteredData$,
     this.bankFilterCtrl.valueChanges
   ]).pipe(
-    map(([filteredData, searchValue]) => {
+    map(([filteredData]) => {
       if (!this.bankFilterCtrl.value && this.bankCtrl.value) {
         const index = filteredData.findIndex(bank => bank.id === this.bankCtrl.value);
         return index + this.batchSize;
@@ -65,7 +66,7 @@ export class InfiniteScrollExampleComponent implements OnInit, OnDestroy {
     startWith(0)
   );
 
-  /** length of the visible data / start of the next batch */
+  /** Length of the visible data / start of the next batch */
   private batchOffset$ = combineLatest([
     merge(
       this.incrementBatchOffset$.pipe(mapTo(true)),
@@ -83,7 +84,7 @@ export class InfiniteScrollExampleComponent implements OnInit, OnDestroy {
   );
 
 
-  /** list of data, filtered by the search keyword, limited to the length accumulated by infinity scrolling */
+  /** List of data, filtered by the search keyword, limited to the length accumulated by infinity scrolling */
   filteredBatchedData$: Observable<Bank[]> = combineLatest([
     this.filteredData$,
     this.batchOffset$
@@ -93,16 +94,7 @@ export class InfiniteScrollExampleComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
 
-  constructor() { }
 
-  ngOnInit() {
-    /*this.infiniteScrollSelect.openedChange.pipe(takeUntil(this.destroy$)).subscribe(opened => {
-      // after opening, reset the batch offset
-      if (opened) {
-        this.resetBatchOffset$.next();
-      }
-    });*/
-  }
 
   ngOnDestroy() {
     this.destroy$.next();

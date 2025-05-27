@@ -9,30 +9,28 @@ import { Bank, BANKS } from '../demo-data';
 
 @Component({
   selector: 'app-single-selection-example',
+  standalone: false,
   templateUrl: './single-selection-example.component.html',
   styleUrls: ['./single-selection-example.component.scss']
 })
 export class SingleSelectionExampleComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  /** list of banks */
+  /** List of banks */
   protected banks: Bank[] = BANKS;
 
-  /** control for the selected bank */
-  public bankCtrl: FormControl<Bank> = new FormControl<Bank>(null);
+  /** Control for the selected bank */
+  public bankCtrl: FormControl<Bank | null> = new FormControl<Bank | null>(null);
 
-  /** control for the MatSelect filter keyword */
-  public bankFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword */
+  public bankFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of banks filtered by search keyword */
+  /** List of banks filtered by search keyword */
   public filteredBanks: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
 
   @ViewChild('singleSelect', { static: true }) singleSelect: MatSelect;
 
   /** Subject that emits when the component has been destroyed. */
   protected _onDestroy = new Subject<void>();
-
-
-  constructor() { }
 
   ngOnInit() {
     // set initial selection

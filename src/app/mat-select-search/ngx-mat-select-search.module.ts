@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectNoEntriesFoundDirective } from './mat-select-no-entries-found.directive';
 import { MatDividerModule } from '@angular/material/divider';
 
-export const MatSelectSearchVersion = '7.0.4';
+export const MatSelectSearchVersion = '8.0.1';
 export { MatSelectSearchClearDirective };
 export { MatSelectNoEntriesFoundDirective };
 
