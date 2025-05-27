@@ -8,24 +8,25 @@ import { Bank, BANKS } from '../demo-data';
 
 @Component({
   selector: 'app-server-side-search-example',
+  standalone: false,
   templateUrl: './server-side-search-example.component.html',
   styleUrls: ['./server-side-search-example.component.scss']
 })
 export class ServerSideSearchExampleComponent implements OnInit, OnDestroy {
 
-  /** list of banks */
+  /** List of banks */
   protected banks: Bank[] = BANKS;
 
-  /** control for the selected bank for server side filtering */
-  public bankServerSideCtrl: FormControl<Bank> = new FormControl<Bank>(null);
+  /** Control for the selected bank for server side filtering */
+  public bankServerSideCtrl: FormControl<Bank | null> = new FormControl<Bank | null>(null);
 
-  /** control for filter for server side. */
-  public bankServerSideFilteringCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for filter for server side. */
+  public bankServerSideFilteringCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** indicate search operation is in progress */
+  /** Indicate search operation is in progress */
   public searching = false;
 
-  /** list of banks filtered after simulating server side search */
+  /** List of banks filtered after simulating server side search */
   public  filteredServerSideBanks: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
 
   /** Subject that emits when the component has been destroyed. */
@@ -55,7 +56,7 @@ export class ServerSideSearchExampleComponent implements OnInit, OnDestroy {
         this.searching = false;
         this.filteredServerSideBanks.next(filteredBanks);
       },
-        error => {
+        () => {
           // no errors in our simulated example
           this.searching = false;
           // handle error...

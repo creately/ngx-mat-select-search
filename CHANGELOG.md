@@ -1,5 +1,75 @@
 # Changelog
 
+
+## 8.0.1
+* Enhancement: Add compatibility with `@angular/material`: `^20.0.0`
+* Fix: Missing brackground color on search input field
+  [#542](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/542)
+
+  Thanks to @melroy89
+* Fix: When changing the font-size, the select input had a wrong height
+  [#541](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/541)
+
+  Thanks to @angelaki
+
+## 8.0.0
+* Upgrade: Upgrade project to Angular 19
+  [#520](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/520)
+
+  Thanks to @swierzbicki
+
+> [!CAUTION]
+> **Breaking Change**:  `@angular/material`: `<= 15` is not supported anymore, please use version `16.0.0`.
+See [README.md#compatibility](README.md#compatibility)
+
+## 7.0.10
+* Fix: Explicitly set `standalone: false` for Angular 19 compatibility
+  [#512](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/512)
+  
+  Thanks to @GipHub123
+
+## 7.0.9
+* Enhancement: Make Placeholder color tunable.
+  [#506](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/506)
+  
+  Thanks to @iblislin
+
+## 7.0.8
+* Enhancement: Add option `recreateValuesArray` to support immutable data structures in multi-selects.
+  [#376](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/376)
+  
+  Thanks to @KristofGilis
+  
+* Enhancement: Add compatibility with `@angular/material`: `^19.0.0`
+* Enhancement: Remove use of deprecated `event.keyCode`
+  [#485](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/485)
+  
+  Thanks to @sirh3e
+* Documentation: Improved example doc strings
+  [#489](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/489)
+  
+  Thanks to @sirh3e
+
+## 7.0.7
+* Fix blocked aria-hidden when opening the dropdown for the first time
+  [#474](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/474)
+
+  Thanks to @AleixFerreCP
+* Enhancement: Enable `strictNullChecks`
+  [#476](https://github.com/bithost-gmbh/ngx-mat-select-search/pull/476)
+
+  Thanks to @davidsansome
+
+## 7.0.6
+* Enhancement: Add compatibility with `@angular/material`: `^18.0.0`
+
+## 7.0.5
+* Fix select search should compare values of options for first item 
+  [#445](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/445)
+
+  Thanks to @lorenzbaier
+* Enhancement: Add compatibility with `@angular/material`: `^17.0.0`
+
 ## 7.0.4
 * Fix background issue with `@angular/material`: `^16.2.0` with toggle-all button
   [#435](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/435)

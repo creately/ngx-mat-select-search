@@ -8,21 +8,22 @@ import { Bank, BANKS } from '../demo-data';
 
 @Component({
   selector: 'app-multiple-selection-example',
+  standalone: false,
   templateUrl: './multiple-selection-example.component.html',
   styleUrls: ['./multiple-selection-example.component.scss']
 })
 export class MultipleSelectionExampleComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  /** list of banks */
+  /** List of banks */
   protected banks: Bank[] = BANKS;
 
-  /** control for the selected bank for multi-selection */
-  public bankMultiCtrl: FormControl<Bank[]> = new FormControl<Bank[]>([]);
+  /** Control for the selected bank for multi-selection */
+  public bankMultiCtrl: FormControl<Bank[]> = new FormControl<Bank[]>([], {nonNullable: true});
 
-  /** control for the MatSelect filter keyword multi-selection */
-  public bankMultiFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword multi-selection */
+  public bankMultiFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of banks filtered by search keyword */
+  /** List of banks filtered by search keyword */
   public filteredBanksMulti: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
 
   @ViewChild('multiSelect', { static: true }) multiSelect: MatSelect;
@@ -31,7 +32,7 @@ export class MultipleSelectionExampleComponent implements OnInit, AfterViewInit,
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+
 
   ngOnInit() {
     // set initial selection

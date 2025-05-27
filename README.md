@@ -13,12 +13,375 @@ Angular component providing an input field for searching / filtering [MatSelect]
 <img src="src/assets/example-new.png" alt="Example" width="293"/>
 
 ## Try it
-See it in action at [https://stackblitz.com/github/bithost-gmbh/ngx-mat-select-search-example](https://stackblitz.com/github/bithost-gmbh/ngx-mat-select-search-example?file=src%2Fapp%2Fapp.component.html)
+See it in action at 
+
+* [https://stackblitz.com/github/bithost-gmbh/ngx-mat-select-search-example](https://stackblitz.com/github/bithost-gmbh/ngx-mat-select-search-example?file=src%2Fapp%2Fapp.component.html)
+
+  see example code, builds in browser, latest version, latest material version
+* [https://bithost-gmbh.github.io/ngx-mat-select-search/](https://bithost-gmbh.github.io/ngx-mat-select-search/)
+
+  pre-built, latest version, material 19, works on mobile
 
 **Important Note**: This project is meant as a temporary implementation of [https://github.com/angular/material2/issues/5697](https://github.com/angular/material2/issues/5697).
-The goal is to have an implementation in the official Angular Material repository, 
-once [https://github.com/angular/material2/pull/7835](https://github.com/angular/material2/pull/7835)
-is merged.
+The goal is to have an implementation in the official Angular Material repository, a new PR will be created.
+
+## Contributions
+Contributions are welcome, please open an issue and preferably file a pull request.
+
+### Support Development
+
+We aim at providing the best service possible by constantly improving `NgxMatSelectSearch` and responding fast to bug reports. We do this fully free of cost.
+If you feel like this library was useful to you and saved you and your business some precious time, please consider making a donation to support its maintenance and further development.
+
+[![PayPal](https://www.paypalobjects.com/en_US/CH/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAX558HVGAX8Q)
+
+### Financial Supporters
+
+Thank you very much to our financial supporters!
+
+<!-- readme: pschulzk,SalvatoreB98,sponsors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/pschulzk">
+                    <img src="https://avatars.githubusercontent.com/u/7001048?v=4" width="100;" alt="pschulzk"/>
+                    <br />
+                    <sub><b>Philip Viktor Schulz-Klingauf</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/salvatoreb98">
+                    <img src="https://avatars.githubusercontent.com/u/77462490?v=4" width="100;" alt="salvatoreb98"/>
+                    <br />
+                    <sub><b>Salvatore Butera</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
+<!-- readme: pschulzk,SalvatoreB98,sponsors -end -->
+
+### Collaborators
+
+<!-- readme: collaborators -start -->
+<table>
+	<tbody>
+	<tbody>
+</table>
+<!-- readme: collaborators -end -->
+
+### Contributors
+
+Thank you very much to all our community contributors!
+
+<!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/macjohnny">
+                    <img src="https://avatars.githubusercontent.com/u/5589029?v=4" width="100;" alt="macjohnny"/>
+                    <br />
+                    <sub><b>Esteban Gehring</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/maechler">
+                    <img src="https://avatars.githubusercontent.com/u/4113819?v=4" width="100;" alt="maechler"/>
+                    <br />
+                    <sub><b>Markus Mächler</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/swierzbicki">
+                    <img src="https://avatars.githubusercontent.com/u/7196324?v=4" width="100;" alt="swierzbicki"/>
+                    <br />
+                    <sub><b>Sebastian Wierzbicki </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/angelaki">
+                    <img src="https://avatars.githubusercontent.com/u/38611461?v=4" width="100;" alt="angelaki"/>
+                    <br />
+                    <sub><b>Tristan</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/sirh3e">
+                    <img src="https://avatars.githubusercontent.com/u/24867927?v=4" width="100;" alt="sirh3e"/>
+                    <br />
+                    <sub><b>Sirh3e</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/tonyholt">
+                    <img src="https://avatars.githubusercontent.com/u/893926?v=4" width="100;" alt="tonyholt"/>
+                    <br />
+                    <sub><b>Tony H</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/melroy89">
+                    <img src="https://avatars.githubusercontent.com/u/628926?v=4" width="100;" alt="melroy89"/>
+                    <br />
+                    <sub><b>Melroy Van Den Berg</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/mstawick">
+                    <img src="https://avatars.githubusercontent.com/u/1216844?v=4" width="100;" alt="mstawick"/>
+                    <br />
+                    <sub><b>Michał Stawicki</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/AleixFerreCP">
+                    <img src="https://avatars.githubusercontent.com/u/93319700?v=4" width="100;" alt="AleixFerreCP"/>
+                    <br />
+                    <sub><b>Aleix Ferré</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/alexandrupaul7">
+                    <img src="https://avatars.githubusercontent.com/u/28051061?v=4" width="100;" alt="alexandrupaul7"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/blazewalker59">
+                    <img src="https://avatars.githubusercontent.com/u/21110755?v=4" width="100;" alt="blazewalker59"/>
+                    <br />
+                    <sub><b>Blaze Walker</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/achilehero">
+                    <img src="https://avatars.githubusercontent.com/u/14956052?v=4" width="100;" alt="achilehero"/>
+                    <br />
+                    <sub><b>Cristian Raducanu</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/damianmigo">
+                    <img src="https://avatars.githubusercontent.com/u/1733403?v=4" width="100;" alt="damianmigo"/>
+                    <br />
+                    <sub><b>Damian Miranda</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Danevandy99">
+                    <img src="https://avatars.githubusercontent.com/u/13788320?v=4" width="100;" alt="Danevandy99"/>
+                    <br />
+                    <sub><b>Dane Vanderbilt</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/davidsansome">
+                    <img src="https://avatars.githubusercontent.com/u/314463?v=4" width="100;" alt="davidsansome"/>
+                    <br />
+                    <sub><b>David Sansome</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/escheiermann">
+                    <img src="https://avatars.githubusercontent.com/u/39056343?v=4" width="100;" alt="escheiermann"/>
+                    <br />
+                    <sub><b>Edgar Scheiermann</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/arucar">
+                    <img src="https://avatars.githubusercontent.com/u/37804893?v=4" width="100;" alt="arucar"/>
+                    <br />
+                    <sub><b>Erendis</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/GipHub123">
+                    <img src="https://avatars.githubusercontent.com/u/12637608?v=4" width="100;" alt="GipHub123"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/gustavovitor">
+                    <img src="https://avatars.githubusercontent.com/u/37344068?v=4" width="100;" alt="gustavovitor"/>
+                    <br />
+                    <sub><b>Gustavo Miranda</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/meta72">
+                    <img src="https://avatars.githubusercontent.com/u/3915589?v=4" width="100;" alt="meta72"/>
+                    <br />
+                    <sub><b>Henno Lauinger</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/himanshu-singh1995">
+                    <img src="https://avatars.githubusercontent.com/u/29891513?v=4" width="100;" alt="himanshu-singh1995"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/iblislin">
+                    <img src="https://avatars.githubusercontent.com/u/761623?v=4" width="100;" alt="iblislin"/>
+                    <br />
+                    <sub><b>Iblis Lin</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/jfcere">
+                    <img src="https://avatars.githubusercontent.com/u/6987084?v=4" width="100;" alt="jfcere"/>
+                    <br />
+                    <sub><b>Jean-Francois Cere</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/josephdecock">
+                    <img src="https://avatars.githubusercontent.com/u/1145533?v=4" width="100;" alt="josephdecock"/>
+                    <br />
+                    <sub><b>Joe DeCock</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/JomalJohny">
+                    <img src="https://avatars.githubusercontent.com/u/43292719?v=4" width="100;" alt="JomalJohny"/>
+                    <br />
+                    <sub><b>Jomal Johny</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/bulldog98">
+                    <img src="https://avatars.githubusercontent.com/u/314259?v=4" width="100;" alt="bulldog98"/>
+                    <br />
+                    <sub><b>Jonathan Kolberg</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/KristofGilis">
+                    <img src="https://avatars.githubusercontent.com/u/2454275?v=4" width="100;" alt="KristofGilis"/>
+                    <br />
+                    <sub><b>Kristof Gilis</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/AhsanAyaz">
+                    <img src="https://avatars.githubusercontent.com/u/9844254?v=4" width="100;" alt="AhsanAyaz"/>
+                    <br />
+                    <sub><b>Muhammad Ahsan Ayaz</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/OvidijusStukas">
+                    <img src="https://avatars.githubusercontent.com/u/9720553?v=4" width="100;" alt="OvidijusStukas"/>
+                    <br />
+                    <sub><b>Ovidijus Stukas</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/raysuelzer">
+                    <img src="https://avatars.githubusercontent.com/u/1176341?v=4" width="100;" alt="raysuelzer"/>
+                    <br />
+                    <sub><b>Ray Suelzer</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/probert94">
+                    <img src="https://avatars.githubusercontent.com/u/18258317?v=4" width="100;" alt="probert94"/>
+                    <br />
+                    <sub><b>Robert Pattis</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/broekema41">
+                    <img src="https://avatars.githubusercontent.com/u/4007585?v=4" width="100;" alt="broekema41"/>
+                    <br />
+                    <sub><b>Roland Broekema</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/shenay-aydan">
+                    <img src="https://avatars.githubusercontent.com/u/38660036?v=4" width="100;" alt="shenay-aydan"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/framasev">
+                    <img src="https://avatars.githubusercontent.com/u/41595972?v=4" width="100;" alt="framasev"/>
+                    <br />
+                    <sub><b>Stas Amasev</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/nischi">
+                    <img src="https://avatars.githubusercontent.com/u/2036054?v=4" width="100;" alt="nischi"/>
+                    <br />
+                    <sub><b>Thierry Nischelwitzer</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/vlio20">
+                    <img src="https://avatars.githubusercontent.com/u/4542641?v=4" width="100;" alt="vlio20"/>
+                    <br />
+                    <sub><b>Vlad Ioffe</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/WX9yMOXWId">
+                    <img src="https://avatars.githubusercontent.com/u/30053114?v=4" width="100;" alt="WX9yMOXWId"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/zpaynter">
+                    <img src="https://avatars.githubusercontent.com/u/29746771?v=4" width="100;" alt="zpaynter"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/evoltafreak">
+                    <img src="https://avatars.githubusercontent.com/u/11610680?v=4" width="100;" alt="evoltafreak"/>
+                    <br />
+                    <sub><b>Joshua</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/lorenzbaier">
+                    <img src="https://avatars.githubusercontent.com/u/64407215?v=4" width="100;" alt="lorenzbaier"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/ruekart">
+                    <img src="https://avatars.githubusercontent.com/u/9154610?v=4" width="100;" alt="ruekart"/>
+                    <br />
+                    <sub><b>Null</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
+<!-- readme: contributors -end -->
 
 ## How to use it?
 Install `ngx-mat-select-search` in your project:
@@ -84,8 +447,14 @@ To use the [i18n](https://angular.io/guide/i18n) API for translation of the labe
 
 #### Current release
 
-* `@angular/core`: `^15.0.0 || ^16.0.0`
-* `@angular/material`: `^15.0.0 || ^16.0.0` with `MatSelectModule` (`@angular/material/select`)
+* `@angular/core`: `^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0`
+* `@angular/material`: `^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0` with `MatSelectModule` (`@angular/material/select`)
+
+
+#### Version [`7.0.10`](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/7.0.10)
+
+* `@angular/core`: `^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0`
+* `@angular/material`: `^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0` with `MatSelectModule` (`@angular/material/select`)
 
 #### Version [`6.0.0`](https://github.com/bithost-gmbh/ngx-mat-select-search/tree/6.0.0)
 
@@ -122,16 +491,16 @@ Furthermore, it provides the following inputs:
   /** Font-based icon used for displaying Close-Icon */
   @Input() closeIcon = 'close';
 
-  /** Svg-based icon used for displaying Close-Icon. If set, closeIcon is overridden */
+  /** SVG-based icon used for displaying Close-Icon. If set, closeIcon is overridden */
   @Input() closeSvgIcon?: string;
 
   /** Label to be shown when no entries are found. Set to null if no message should be shown. */
   @Input() noEntriesFoundLabel = 'Keine Optionen gefunden';
 
   /**
-    * Whether or not the search field should be cleared after the dropdown menu is closed.
-    * Useful for server-side filtering. See [#3](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/3)
-    */
+   * Whether the search field should be cleared after the dropdown menu is closed.
+   * Useful for server-side filtering. See [#3](https://github.com/bithost-gmbh/ngx-mat-select-search/issues/3)
+   */
   @Input() clearSearchInput = true;
 
   /** Whether to show the search-in-progress indicator */
@@ -158,7 +527,7 @@ Furthermore, it provides the following inputs:
   /** Whether to show Select All Checkbox (for mat-select[multi=true]) */
   @Input() showToggleAllCheckbox = false;
 
-  /** select all checkbox checked state */
+  /** Select all checkbox checked state */
   @Input() toggleAllCheckboxChecked = false;
 
   /** select all checkbox indeterminate state */
@@ -173,11 +542,18 @@ Furthermore, it provides the following inputs:
   /** Show/Hide the search clear button of the search input */
   @Input() hideClearSearchButton = false;
 
-  /** 
-   * Always restore selected options on selectionChange for mode multi (e.g. for lazy loading/infinity scrolling). 
-   * Defaults to false, so selected options are only restored while filtering is active. 
+  /**
+   * Always restore selected options on selectionChange for mode multi (e.g. for lazy loading/infinity scrolling).
+   * Defaults to false, so selected options are only restored while filtering is active.
    */
   @Input() alwaysRestoreSelectedOptionsMulti = false;
+
+  /**
+   * Recreate array of selected values for multi-selects.
+   *
+   * This is useful if the selected values are stored in an immutable data structure.
+   */
+  @Input() recreateValuesArray = false;
   
   /** Output emitter to send to parent component with the toggle all boolean */
   @Output() toggleAll = new EventEmitter<boolean>();
@@ -242,16 +618,6 @@ class AppModule {}
 ## Known Problems
 * The currently selected option might be hidden under the search input field when opening the options panel 
   and the panel is at the screen border.
-   
-## Support Development
-
-We aim at providing the best service possible by constantly improving `NgxMatSelectSearch` and responding fast to bug reports. We do this fully free of cost.
-If you feel like this library was useful to you and saved you and your business some precious time, please consider making a donation to support its maintenance and further development.
-
-[![PayPal](https://www.paypalobjects.com/en_US/CH/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAX558HVGAX8Q)
-
-### Contributions
-Contributions are welcome, please open an issue and preferrably file a pull request.
 
 ## Development
 
@@ -268,6 +634,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ### Library Build / NPM Package
 Run `npm run build-lib` to build the library and generate an NPM package. 
 The build artifacts will be stored in the `dist-lib/` folder.
+
+To release, run `cd dist-lib/ && npm publish`.
 
 ### Running unit tests
 

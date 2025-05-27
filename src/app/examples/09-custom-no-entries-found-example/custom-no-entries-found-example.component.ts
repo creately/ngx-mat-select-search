@@ -7,21 +7,22 @@ import { take, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-custom-no-entries-found-example',
+  standalone: false,
   templateUrl: './custom-no-entries-found-example.component.html',
   styleUrls: ['./custom-no-entries-found-example.component.scss']
 })
 export class CustomNoEntriesFoundExampleComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  /** list of banks */
+  /** List of banks */
   protected banks: Bank[] = BANKS;
 
-  /** control for the selected bank */
-  public bankCtrl: FormControl<Bank> = new FormControl<Bank>(null);
+  /** Control for the selected bank */
+  public bankCtrl: FormControl<Bank | null> = new FormControl<Bank | null>(null);
 
-  /** control for the MatSelect filter keyword */
-  public bankFilterCtrl: FormControl<string> = new FormControl<string>('');
+  /** Control for the MatSelect filter keyword */
+  public bankFilterCtrl: FormControl<string> = new FormControl<string>('', {nonNullable: true});
 
-  /** list of banks filtered by search keyword */
+  /** List of banks filtered by search keyword */
   public filteredBanks: ReplaySubject<Bank[]> = new ReplaySubject<Bank[]>(1);
 
   @ViewChild('singleSelect', { static: true }) singleSelect: MatSelect;
@@ -30,7 +31,7 @@ export class CustomNoEntriesFoundExampleComponent implements OnInit, AfterViewIn
   protected _onDestroy = new Subject<void>();
 
 
-  constructor() { }
+
 
   ngOnInit() {
     // set initial selection
