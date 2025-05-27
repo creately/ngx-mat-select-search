@@ -15,7 +15,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 
 import { MatSelectSearchClearDirective } from './mat-select-search-clear.directive';
-import { MatSelectSearchIconDirective } from './mat-select-search-icon.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectNoEntriesFoundDirective } from './mat-select-no-entries-found.directive';
 import { MatDividerModule } from '@angular/material/divider';
@@ -38,13 +37,11 @@ export { MatSelectNoEntriesFoundDirective };
   declarations: [
     MatSelectSearchComponent,
     MatSelectSearchClearDirective,
-    MatSelectSearchIconDirective,
     MatSelectNoEntriesFoundDirective
   ],
   exports: [
     MatSelectSearchComponent,
     MatSelectSearchClearDirective,
-    MatSelectSearchIconDirective,
     MatSelectNoEntriesFoundDirective
   ]
 })
