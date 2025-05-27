@@ -59,7 +59,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "ngx-mat-select-search:build"
+            "browserTarget": "ngx-mat-select-search:build",
+            "port": 4333
           },
           "configurations": {
             "production": {
@@ -112,9 +113,6 @@
     }
   },
   "cli": {
-    "analytics": false,
-    "schematicCollections": [
-      "angular-eslint"
-    ]
+    "analytics": "d46dc93c-b399-4b66-9df9-b339bc0ae6d5"
   }
 }

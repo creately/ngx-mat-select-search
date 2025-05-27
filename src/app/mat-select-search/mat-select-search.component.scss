@@ -86,6 +86,20 @@ $mat-select-panel-padding: 8px;
   }
 }
 
+.mat-select-search-input-container {
+  display: flex;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mat-select-search-icon {
+  padding-left: 10px;
+  margin-right: -10px;
+}
+
 .mat-select-search-spinner {
   position: absolute;
   right: $mat-select-search-spinner-x;

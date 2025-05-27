@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## 8.0.1
 * Enhancement: Add compatibility with `@angular/material`: `^20.0.0`
 * Fix: Missing brackground color on search input field
@@ -69,6 +68,7 @@ See [README.md#compatibility](README.md#compatibility)
 
   Thanks to @lorenzbaier
 * Enhancement: Add compatibility with `@angular/material`: `^17.0.0`
+* Enhancement: Added Search Icon
 
 ## 7.0.4
 * Fix background issue with `@angular/material`: `^16.2.0` with toggle-all button
